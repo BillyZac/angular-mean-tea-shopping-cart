@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Mean Tea</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./css/master.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+  </head>
+  <header ng-controller="HeaderController">
+    <h1 ng-click="goToMain()">Mean Tea</h1>
+  </header>
+  <body>
+    <div ng-view></div>
+    <!-- <script src="./data.js" type="text/javascript"></script> -->
+
+    <script src="/app.module.js" type="text/javascript"></script>
+    <script src="/app.config.js" type="text/javascript"></script>
+
+    <script src="/catalog/catalog.controller.js" type="text/javascript"></script>
+    <script src="/catalog/catalog.directive.js" type="text/javascript"></script>
+    <script src="/catalog/catalog.filter.js" type="text/javascript"></script>
+
+    <script src="/cart/cart.controller.js" type="text/javascript"></script>
+
+    <script src="/services/cart.factory.js" type="text/javascript"></script>
+    <script src="/services/catalog.factory.js" type="text/javascript"></script>
+
+    <script src="/item/item.directive.js" type="text/javascript"></script>
+    <!-- <script src="/item/item.controller.js" type="text/javascript"></script> -->
+
+    <script src="/layout/header.controller.js" type="text/javascript"></script>
+
+  </body>
+</html>

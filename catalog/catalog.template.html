@@ -1,0 +1,35 @@
+<div ng-controller="CatalogController">
+  <div class="catalogHeader">
+    <div class="search">
+      <label for="category-search">Search by category:</label>
+      <!-- <input type="text" name="category-search" placeholder="Category..."
+        ng-model="categorySearch"> -->
+        <select ng-model="categorySearch">
+          <option
+            ng-repeat="category in categoryMasterList"
+            value="{{category}}">
+            {{category}}
+          </option>
+        </select>
+
+      <label for="name-search">Search by name:</label>
+      <input type="text" name="name-search" placeholder="Name of tea..."
+        ng-model="nameSearch">
+      <button class="checkout-button" type="button"
+        ng-click="goToCart()">Checkout | Bag: {{itemCount}}</button>
+    </div>
+    <div class="sort">
+      <span>Sort by:</span>
+      <select ng-model="orderProperty">
+        <option value="price">Price: lowest to highest</option>
+        <option value="-price">Price: highest to lowest</option>
+      </select>
+    </div>
+  </div>
+  <div ng-repeat="item in catalog
+    | filter:filterByName(nameSearch)
+    | filter:filterByCategory(categorySearch)
+    | orderBy : orderProperty">
+    <item></item>
+  </div>
+</div>

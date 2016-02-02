@@ -1,0 +1,27 @@
+<div class="item">
+  <div>
+    <img ng-src="{{ item.imageUrl }}" alt="{{ item.name }}" />
+  </div>
+  <div class="text">
+    <h2 class="item-name">{{ item.name }}</h2>
+    <div class="contain-this-stuff">
+      <div class="info">
+        <p>Price: {{ item.price  | currency }}</p>
+        <p>Caffeine Scale: {{ item.caffeineScale }}</p>
+        <p>Rating: {{ item.rating }}</p>
+        <p>In stock: {{ item.inStock | yesno }}</p>
+        <p>
+          Categories:
+          <span ng-repeat="category in item.categories">
+            {{ category }}
+          </span>
+        </p>
+      </div>
+      <div class="quantity">
+        <label for="cartContents">Quantity:</label>
+        <input type="number" name="quantity" ng-model="quantity">
+        <button type="button" name="add" ng-click="addItem(item, quantity)">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<h2>Check it out!</h2>
+<div ng-controller="CartController">
+  <h3>Total: {{total | currency}}</h3>
+  <table class="order-table">
+    <thead>
+      <tr>
+        <th>
+          Product
+        </th>
+        <th>
+          Quantity
+        </th>
+        <th>
+          Subtotal
+        </th>
+        <th>
+
+        </th>
+      </tr>
+    </thead>
+    <tr ng-repeat="item in cart">
+      <td>
+        <h2>{{       item.name}}</h2>
+        <p>Price: {{       item.price | currency}}</p>
+        <p>Caffeine: {{    item.caffeineScale}}</p>
+        <p>Ingredients: {{ item.ingredients}}</p>
+        <p>Rating: {{      item.rating}}</p>
+      </td>
+      <td>
+        <p ng-hide="toggleEdit">{{item.quantity}}</p>
+        <input ng-show="toggleEdit" type="number" ng-model="newQuantity" placeholder="Enter new quantity">
+      </td>
+      <td>
+        <p>{{item.price * item.quantity | currency}}</p>
+      </td>
+      <td>
+        <button type="button" ng-click="editItem(item, newQuantity)">{{editButtonText}}</button>
+        <button type="button" ng-click="removeItem(item)">Remove</button>
+      </td>
+    </tr>
+  </table>
+  <div class="submit-order">
+    <button class="order-button" type="button">Place order</button>
+  </div>
+</div>
